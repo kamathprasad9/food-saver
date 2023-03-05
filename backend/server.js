@@ -1,5 +1,6 @@
 require('dotenv').config()
 require('./db/mongoose')
+const cors = require("cors")
 const express = require('express')
 var app = express()
 
@@ -7,6 +8,12 @@ var app = express()
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 app.use(express.json());
+
+// handling cors origin for frontend
+app.use(cors({
+	origin: "http://localhost:3000",
+	credentials: true
+}))
 
 const donationRoutes = require('./routes/donations')
 

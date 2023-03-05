@@ -2,20 +2,20 @@ import axios from 'axios'
 
 export const getAllDonations = async () => {
 	const result = await axios.get(
-		"http://localhost:4000/api/donations",
+		"http://localhost:5000/api/donations",
 	)
-	return result.data[0]
+	return result.data
 }
 
 export const createDonation = async (
 	donation	
 ) => {
 	await axios.post(
-		"http://localhost:4000/api/donations",
+		"http://localhost:5000/api/donations",
 		{
 			data: {
 				"title": donation.title,
-				"desciption": donation.desciption,
+				"description": donation.description,
 				"foodItems": donation.foodItems,
 				"forNumberOfPeople": donation.forNumberOfPeople,
 				"address": donation.address,
@@ -33,7 +33,7 @@ export const updateDonation = async (
 	donation
 ) => {
 	await axios.patch(
-		`http://localhost:4000/api/donations/${donation._id}`,
+		`http://localhost:5000/api/donations/${donation._id}`,
 		{
 			data: {
 				...donation

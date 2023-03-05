@@ -35,6 +35,7 @@ const getDonation = async (req, res) => {
 
 // create new donation
 const createDonation = async (req, res) => {
+	console.log("here: ", req.body)
     const {
         title,
         description,

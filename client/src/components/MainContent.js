@@ -1,8 +1,21 @@
-const MainContent = () => {
+import About from "./About"
+import ViewDonations from "./ViewDonations"
+import AddDonation from "./AddDonation"
+
+const MainContent = ({activePage}) => {
+	console.log(activePage)
 	return (
-		<div>
-			main content
-		</div>
+		<>
+			{
+				activePage === "About Us" ?
+				<About />
+				:
+				activePage === "View Donations" ?
+				<ViewDonations />
+				:
+				<AddDonation />
+			}
+		</>
 	)
 }
 
