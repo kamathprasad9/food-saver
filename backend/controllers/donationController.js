@@ -43,7 +43,7 @@ const createDonation = async (req, res) => {
         forNumberOfPeople,
         donationMode,
         donationStatus
-    } = req.body
+    } = req.body.data
     // add doc to db
     try{
         const donation = await Donation.create({
@@ -92,7 +92,7 @@ const updateDonation = async(req, res) => {
     try{
         //  '...' spreads the objects
         const donation = await Donation.findByIdAndUpdate(id,{
-            ...req.body
+            ...req.body.data
         })
         // if no donation found
         if(!donation){
